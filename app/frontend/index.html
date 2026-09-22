@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MovieMind</title>
+
+    <!-- CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION BAR
+    ========================== -->
+    <header class="navbar">
+
+        <div class="logo">
+            🎬 MovieMind
+        </div>
+
+        <nav>
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+    <main>
+
+
+        <!-- =========================
+             HERO / SEARCH SECTION
+        ========================== -->
+        <section class="hero-section" id="home">
+
+            <h1>Discover Your Next Movie</h1>
+
+            <p>
+                Find movies similar to the ones you already love.
+            </p>
+
+            <div class="movie-search">
+
+                <label for="movie-search">
+                    🔍 Search or select a movie
+                </label>
+
+                <input
+                    type="text"
+                    id="movie-search"
+                    placeholder="Search movies..."
+                >
+
+                <button id="recommend-button">
+                    Get Recommendations
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             MOVIE DETAILS SECTION
+        ========================== -->
+        <section class="movie-details-section">
+
+            <h2>Movie Details</h2>
+
+            <div class="movie-details">
+
+                <!-- Movie Poster -->
+                <div class="movie-poster">
+                    <img
+                        id="selected-movie-poster"
+                        src=""
+                        alt="Selected movie poster"
+                    >
+                </div>
+
+
+                <!-- Movie Information -->
+                <div class="movie-info">
+
+                    <h2 id="selected-movie-title">
+                        Select a movie
+                    </h2>
+
+                    <p id="selected-movie-rating">
+                        ⭐ Rating: --
+                    </p>
+
+                    <p id="selected-movie-votes">
+                        👥 Votes: --
+                    </p>
+
+                    <p id="selected-movie-genres">
+                        Genres: --
+                    </p>
+
+                    <h3>Overview</h3>
+
+                    <p id="selected-movie-overview">
+                        Select a movie to see its details.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             RECOMMENDATIONS SECTION
+        ========================== -->
+        <section class="recommendations-section">
+
+            <h2>🎯 You May Also Like</h2>
+
+            <p class="section-description">
+                Movies similar to your selected movie.
+            </p>
+
+
+            <div class="recommendation-grid" id="recommendation-grid">
+
+                <!-- Recommendation cards will be inserted
+                     here by JavaScript -->
+
+                <div class="empty-recommendations">
+                    <p>
+                        Select a movie to see recommendations.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SENTIMENT ANALYSIS SECTION
+        ========================== -->
+        <section class="sentiment-section">
+
+            <h2>💭 Sentiment Analysis</h2>
+
+            <p class="section-description">
+                Analyze the sentiment of your movie review.
+            </p>
+
+
+            <!-- Currently selected movie -->
+            <div class="review-movie">
+
+                <p>
+                    You're reviewing:
+                    <strong id="review-movie-title">
+                        Select a movie first
+                    </strong>
+                </p>
+
+            </div>
+
+
+            <!-- Review Input -->
+            <div class="review-container">
+
+                <label for="review-input">
+                    Write your movie review
+                </label>
+
+                <textarea
+                    id="review-input"
+                    rows="6"
+                    placeholder="Write your review..."
+                ></textarea>
+
+                <button id="sentiment-button">
+                    Analyze Sentiment
+                </button>
+
+            </div>
+
+
+            <!-- Sentiment Result -->
+            <div
+                class="sentiment-result"
+                id="sentiment-result"
+            >
+
+                <h3>Sentiment Result</h3>
+
+                <p id="sentiment-label">
+                    Your result will appear here.
+                </p>
+
+                <p id="sentiment-confidence">
+                    Confidence: --
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- =========================
+     ABOUT SECTION
+    ========================== -->
+    <section class="about-section" id="about">
+
+        <div class="about-content">
+
+            <h2>About MovieMind</h2>
+
+            <p class="about-intro">
+                MovieMind is a content-based movie recommendation system
+                designed to help you discover movies similar to the ones
+                you already enjoy.
+            </p>
+
+
+            <div class="about-cards">
+
+                <!-- Recommendation -->
+                <div class="about-card">
+
+                    <div class="about-icon">
+                        🎬
+                    </div>
+
+                    <h3>Movie Recommendations</h3>
+
+                    <p>
+                        MovieMind analyzes movie information such as genres,
+                        keywords, cast, crew, and overview to find movies
+                        with similar content.
+                    </p>
+
+                </div>
+
+
+                <!-- TF-IDF -->
+                <div class="about-card">
+
+                    <div class="about-icon">
+                        🔍
+                    </div>
+
+                    <h3>TF-IDF Similarity</h3>
+
+                    <p>
+                        TF-IDF is used to represent movie content as numerical
+                        vectors, and cosine similarity is used to identify
+                        movies with similar content.
+                    </p>
+
+                </div>
+
+
+                <!-- Sentiment -->
+                <div class="about-card">
+
+                    <div class="about-icon">
+                        💭
+                    </div>
+
+                    <h3>Sentiment Analysis</h3>
+
+                    <p>
+                        MovieMind also analyzes a user's movie review and
+                        predicts whether the sentiment expressed in the
+                        review is positive or negative.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="about-project">
+
+                <h3>How It Works</h3>
+
+                <p>
+                    Select a movie, explore its details, and receive
+                    recommendations for similar movies. You can also write
+                    a movie review and analyze its sentiment using the
+                    sentiment analysis model.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer>
+
+        <p>
+            © 2026 MovieMind. Movie recommendation and sentiment analysis.
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript file -->
+    <script src="script.js"></script>
+
+</body>
+</html>
