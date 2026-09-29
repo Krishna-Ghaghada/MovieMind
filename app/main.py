@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 import pandas as pd
 import pickle
@@ -72,9 +74,7 @@ print("Sentiment TF-IDF loaded successfully!")
 
 @app.get("/")
 def home():
-    return {
-        "message": "MovieMind API is running!"
-    }
+    return FileResponse(BASE_DIR / "app" / "frontend" / "index.html")
 
 # =========================
 # RECOMMENDATION ENDPOINT
@@ -210,3 +210,8 @@ def analyze_sentiment(review: str):
         "sentiment": sentiment,
         "decision_score": round(float(decision_score), 4)
     }
+app.mount(
+    "/",
+    StaticFiles(directory=BASE_DIR / "app" / "frontend"),
+    name="frontend"
+)

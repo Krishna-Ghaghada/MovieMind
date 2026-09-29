@@ -28,7 +28,7 @@ async function getRecommendations(movieTitle) {
     try {
 
         const response = await fetch(
-            `http://127.0.0.1:8000/recommend/${encodeURIComponent(movieTitle)}`
+            `/recommend/${encodeURIComponent(movieTitle)}`
         );
 
         if (!response.ok) {
@@ -118,7 +118,7 @@ recommendButton.addEventListener("click", () => {
 async function getMovieDetails(movieTitle) {
     try {
         const response = await fetch(
-            `http://127.0.0.1:8000/movie/${encodeURIComponent(movieTitle)}`
+            `/movie/${encodeURIComponent(movieTitle)}`
         );
 
         if (!response.ok) {
@@ -169,7 +169,7 @@ async function getMovieDetails(movieTitle) {
         // Get poster separately from TMDB
         try {
             const posterResponse = await fetch(
-                `http://127.0.0.1:8000/poster/${movie.id}`
+                `/poster/${movie.id}`
             );
 
             if (posterResponse.ok) {
@@ -243,7 +243,7 @@ async function analyzeSentiment() {
         sentimentResult.style.display = "block";
 
         const response = await fetch(
-            "http://127.0.0.1:8000/sentiment?review=" +
+            "/sentiment?review=" +
             encodeURIComponent(review),
             {
                 method: "POST"
